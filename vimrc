@@ -16,7 +16,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neocomplcache.vim'
-Plugin 'terryma/vim-smooth-scroll'
+Plugin 'vim-scripts/grep.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'flazz/vim-colorschemes'
@@ -27,7 +27,6 @@ Plugin 'editorconfig/editorconfig-vim'
 
 "** search **
 "Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'vim-scripts/grep.vim'
 
 "** code snippets **
 "Plugin 'SirVer/ultisnips'
@@ -171,8 +170,9 @@ endif
 "*** grep.vim settings ***
 nnoremap <silent> <F4> :Rgrep<CR>
 let Grep_Default_Options = '-rnw'
-"let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Files = '*.db *.o *.so *.exe *.py[cod] *.class tags'
 let Grep_Skip_Dirs = '.git node_modules'
+nmap <silent><leader>q :ccl<CR>
 
 "*** ctrlp.vim settings ***
 set wildmode=list:longest,list:full
@@ -363,7 +363,7 @@ imap [ []<Esc>i
 nmap <leader>t :%s/\s\+$//e <CR>
 
 " To remove hightlight
-nmap t :nohl <CR>
+nmap <silent>nh :nohl <CR>
 
 " To move cursor at the center of window
 nmap c z. <CR>
@@ -371,9 +371,10 @@ nmap c z. <CR>
 " Buffer
 nmap bn :bn <CR>
 nmap bp :bp <CR>
+nmap bd :bd <CR>
 
-" Search
-nmap s *
+" Word search
+nmap ss *
 
 " Move the split window by Tab.
 nmap <TAB> <C-w><C-w>
@@ -383,3 +384,6 @@ nmap <silent><leader>vm :vertical resize -5<CR>
 " Change the height of sp window. (Plus / Minus)
 nmap <silent><leader>sp <C-w>+
 nmap <silent><leader>sm <C-w>-
+
+" set list toggle
+nmap sl :set list!<CR>
