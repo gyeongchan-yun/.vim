@@ -20,7 +20,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'Yggdroot/indentLine'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'flazz/vim-colorschemes'
-"Plugin 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 "** syntax check **
 "Plugin 'Syntastic'
@@ -362,13 +362,24 @@ imap [ []<Esc>i
 " To trim white space. 't' denotes 'trim'
 nmap <leader>t :%s/\s\+$//e <CR>
 
-"To remove hightlight
+" To remove hightlight
 nmap t :nohl <CR>
 
-"To move cursor at the center of window
+" To move cursor at the center of window
 nmap c z. <CR>
 
-nmap <TAB> <C-w><C-w>
+" Buffer
 nmap bn :bn <CR>
 nmap bp :bp <CR>
+
+" Search
 nmap s *
+
+" Move the split window by Tab.
+nmap <TAB> <C-w><C-w>
+" Change the width of vs window. (Plus / Minus)
+nmap <silent><leader>vp :vertical resize +5<CR>
+nmap <silent><leader>vm :vertical resize -5<CR>
+" Change the height of sp window. (Plus / Minus)
+nmap <silent><leader>sp <C-w>+
+nmap <silent><leader>sm <C-w>-
