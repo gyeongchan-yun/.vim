@@ -21,6 +21,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Raimondi/delimitMate'
 
 "** syntax check **
 "Plugin 'Syntastic'
@@ -48,6 +49,9 @@ call vundle#end()
 "*********************************
 "* Plugin settings       
 "*********************************
+
+" delimitmate settings
+let delimitMate_expand_cr=1
 
 "*** vim-fugitive settings ***
 " If you know in more details, :help fugitive.
@@ -354,9 +358,10 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 " Auto-complete brackets
-imap ( ()<Esc>i
-imap { {}<Esc>i
-imap [ []<Esc>i
+" If you don't like delimitmate, use those settings.
+"imap ( ()<Esc>i
+"imap { {}<Esc>i
+"imap [ []<Esc>i
 
 "*** Customized key mappings ***
 " To trim white space. 't' denotes 'trim'
