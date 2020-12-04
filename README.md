@@ -4,7 +4,7 @@
 
   Prerequisites
   -------------
-  - **Recommendation**: Download **iPutty**. [[link]](https://github.com/iputty/iputty/wiki)
+  - **Recommendation**: Download [iPutty](https://github.com/iputty/iputty/wiki).
 
   - If you want to use an **original putty**, **edit font configuration**.
     - Window -> Appearance -> Font settings, font: **Consolas**, style: **normal**.

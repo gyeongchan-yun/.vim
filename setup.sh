@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 if [ -f ~/.vimrc ]; then
   echo "[WARNING] .vimrc already exists."
@@ -39,8 +39,8 @@ vim +PluginInstall +qall
 echo "[INFO] Plugin install is done."
 
 # To solve the recent issue for vim-polyglot
-cd $HOME/.vim/bundle/vim-polyglot
-git checkout 7673a61990d4062adebbe49f71067b0aad90382a
+#cd $HOME/.vim/bundle/vim-polyglot
+#git checkout 7673a61990d4062adebbe49f71067b0aad90382a
 
 cd $HOME
 echo "[INFO] VIM setup done."
