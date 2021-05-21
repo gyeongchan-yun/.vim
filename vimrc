@@ -10,24 +10,31 @@ call vundle#begin()
 "*********************************
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neocomplcache.vim'
-Plugin 'vim-scripts/grep.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Raimondi/delimitMate'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+"** editor config **
+"Plugin 'editorconfig/editorconfig-vim'
+
+"** airline **
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+
+"** Git **
+"Plugin 'tpope/vim-fugitive'
+
+"** Directory tree **
+"Plugin 'scrooloose/nerdtree'
 
 "** syntax check **
 "Plugin 'Syntastic'
 
 "** search **
 "Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'vim-scripts/grep.vim'
 
 "** code snippets **
 "Plugin 'SirVer/ultisnips'
@@ -359,9 +366,18 @@ cnoreabbrev Qall qall
 
 " Auto-complete brackets
 " If you don't like delimitmate, use those settings.
-"imap ( ()<Esc>i
-"imap { {}<Esc>i
-"imap [ []<Esc>i
+function! ConditionalPairMap(open, close)
+  let line = getline('.')
+  let col = col('.')
+  if col < col('$') || stridx(line, a:close, col + 1) != -1
+    return a:open
+  else
+    return a:open . a:close . repeat("\<left>", len(a:close))
+  endif
+endfunction
+inoremap <expr> ( ConditionalPairMap('(', ')')
+inoremap <expr> { ConditionalPairMap('{', '}')
+inoremap <expr> [ ConditionalPairMap('[', ']')"
 
 "*** Customized key mappings ***
 " To trim white space. 't' denotes 'trim'
