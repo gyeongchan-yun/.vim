@@ -15,6 +15,7 @@ Plugin 'Shougo/neocomplcache.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'Raimondi/delimitMate'
 
 "** editor config **
 "Plugin 'editorconfig/editorconfig-vim'
@@ -363,21 +364,6 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
-
-" Auto-complete brackets
-" If you don't like delimitmate, use those settings.
-function! ConditionalPairMap(open, close)
-  let line = getline('.')
-  let col = col('.')
-  if col < col('$') || stridx(line, a:close, col + 1) != -1
-    return a:open
-  else
-    return a:open . a:close . repeat("\<left>", len(a:close))
-  endif
-endfunction
-inoremap <expr> ( ConditionalPairMap('(', ')')
-inoremap <expr> { ConditionalPairMap('{', '}')
-inoremap <expr> [ ConditionalPairMap('[', ']')"
 
 "*** Customized key mappings ***
 " To trim white space. 't' denotes 'trim'
